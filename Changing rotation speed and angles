@@ -1,0 +1,37 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+//BASED OFF CUBE 
+public class Cube : MonoBehaviour
+{
+    public MeshRenderer Renderer;
+    public float speed = 100;
+    public float yRotation = 0;
+    public float xRotation = 0;
+    void Start()
+    {
+        transform.position = new Vector3(3, 4, 1);
+        transform.localScale = Vector3.one * 1.3f;
+        
+        Material material = Renderer.material;
+        
+        //material.color = new Color(Random.value, Random.value, Random.value,Random.value);
+        
+     
+    }
+    //FOCUS ON THIS
+    void Update()
+    {
+
+   
+ 
+        // Deltatime is the amount of time it takes for a frame to pass
+        // This means it is an accurate way of counting upwards.
+        yRotation += Time.deltaTime * speed;
+        xRotation += Time.deltaTime * speed;
+
+        // This will set the rotation to a new rotation based on an increasing Y axis.
+        // Which will make it spin horizontally
+        this.transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
+    }
+}
